@@ -1,85 +1,160 @@
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+<script src="../static/js/app.js"></script>
+<script src="../static/js/controller/customerController.js"></script>
+<script src="../static/js/service/customerService.js"></script>
+
 <body ng-app="myApp">
 	<h2>Order Services</h2>
-	 <div class="generic-container" ng-controller="customerController as customerController">
-          <div class="panel panel-default">
-              <div class="panel-heading"><span class="lead">Customer Registration Form </span></div>
-              <div class="formcontainer">
-                  <form ng-submit="customerController.submit()" name="myForm" class="form-horizontal">
-                      <input type="hidden" ng-model="customerController.user.id" />
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="uname">First Name</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="customerController.user.username" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.uname.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
-                                      <span ng-show="myForm.uname.$invalid">This field is invalid </span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                       <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="uname">Last Name</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="customerController.user.username" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.uname.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
-                                      <span ng-show="myForm.uname.$invalid">This field is invalid </span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      
-                       <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="uname">Mobile Number</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="customerController.user.username" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.uname.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span>
-                                      <span ng-show="myForm.uname.$invalid">This field is invalid </span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                       
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="address">Address</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="customerController.user.address" id="address" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
-                              </div>
-                          </div>
-                      </div>
- 
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="email">Email</label>
-                              <div class="col-md-7">
-                                  <input type="email" ng-model="customerController.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.email.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.email.$invalid">This field is invalid </span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
- 
-                      <div class="row">
-                          <div class="form-actions floatRight">
-                              <input type="submit"  value="Add" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                              <button type="button" ng-click="customerController.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
+	<div class="generic-container"
+		ng-controller="customerController as customerController">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="lead"><h2>Customer Registration Form</h2> </span>
+			</div>
+			<div class="formcontainer">
+				<form ng-submit="customerController.submit()" name="myForm"
+					class="form-horizontal">
+					<input type="hidden" ng-model="customerController.customer.id" />
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="uname">First
+								Name</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerFirstName"
+									id="firstName" class="username form-control input-sm"
+									placeholder="Enter your First name" required ng-minlength="3" />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.uname.$error.required">This is a
+										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
+										length required is 3</span> <span ng-show="myForm.uname.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="uname">Last
+								Name</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerLastName"
+									id="lastName" class="username form-control input-sm"
+									placeholder="Enter your Last name" required ng-minlength="3" />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.uname.$error.required">This is a
+										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
+										length required is 3</span> <span ng-show="myForm.uname.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="uname">Mobile
+								Number</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerMobile"
+									id="mobileNumber" class="username form-control input-sm"
+									placeholder="Enter your Mobile Number" required
+									ng-minlength="3" />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.uname.$error.required">This is a
+										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
+										length required is 3</span> <span ng-show="myForm.uname.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="uname">Phone
+								Number</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerPhone"
+									id="phoneNumber" class="username form-control input-sm"
+									placeholder="Enter your Phone Number" required ng-minlength="3" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="address">Country</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerCountry"
+									id="country" class="form-control input-sm"
+									placeholder="Enter your Country" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="address">State</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerState"
+									id="state" class="form-control input-sm"
+									placeholder="Enter your State" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="address">PostalCode</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerPostcode"
+									id="postalCode" class="form-control input-sm"
+									placeholder="Enter your Postal Code" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="address">Address</label>
+							<div class="col-md-7">
+								<input type="text" ng-model="customerController.customer.customerAddress"
+									id="address" class="form-control input-sm"
+									placeholder="Enter your Address." />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-2 control-lable" for="email">Email</label>
+							<div class="col-md-7">
+								<input type="email" ng-model="customerController.customer.customerEmail"
+									id="email" class="email form-control input-sm"
+									placeholder="Enter your Email" required />
+								<div class="has-error" ng-show="myForm.$dirty">
+									<span ng-show="myForm.email.$error.required">This is a
+										required field</span> <span ng-show="myForm.email.$invalid">This
+										field is invalid </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-actions floatRight">
+							<input type="submit" value="Add" class="btn btn-primary btn-sm"
+								ng-disabled="myForm.$invalid">
+							<button type="button" ng-click="customerController.reset()"
+								class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset
+								Form</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 </body>
 </html>
