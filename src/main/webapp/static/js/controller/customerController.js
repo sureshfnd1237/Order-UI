@@ -6,13 +6,17 @@
 App.controller('customerController', ['$scope', 'customerService', function($scope, customerService) {
           var self = this;
           self.customer={id:null,customerFirstName:'',customerLastName:'',customerMobile:'',customerPhone:'',customerCountry:'',customerState:'',customerPostcode:'',customerAddress:'',customerEmail:''};
+          self.customersPromise;
           self.customers=[];
                
           self.fetchAllCustomers = function(){
         	  customerService.fetchAllCustomers()
                   .then(
                                function(d) {
-                                    self.customers = d;
+                                   self.customersPromise = d;
+                                   alert("customers fetched "+d);
+                                    self.customers = customersPromise.customerList;
+                                    console.log(customersPromise);
                                },
                                 function(errResponse){
                                     console.error('Error while fetching customers');
@@ -83,7 +87,7 @@ App.controller('customerController', ['$scope', 'customerService', function($sco
  
            
           self.reset = function(){
-              self.customer={id:null,customername:'',address:'',email:''};
+              self.customer={id:null,customerFirstName:'',customerLastName:'',customerMobile:'',customerPhone:'',customerCountry:'',customerState:'',customerPostcode:'',customerAddress:'',customerEmail:''};
               $scope.myForm.$setPristine(); //reset Form
           };
  
