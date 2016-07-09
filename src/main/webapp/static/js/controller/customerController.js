@@ -6,17 +6,19 @@
 App.controller('customerController', ['$scope', 'customerService', function($scope, customerService) {
           var self = this;
           self.customer={id:null,customerFirstName:'',customerLastName:'',customerMobile:'',customerPhone:'',customerCountry:'',customerState:'',customerPostcode:'',customerAddress:'',customerEmail:''};
-          self.customersPromise;
           self.customers=[];
+//          self.dataJson={};
                
           self.fetchAllCustomers = function(){
         	  customerService.fetchAllCustomers()
                   .then(
                                function(d) {
-                                   self.customersPromise = d;
-                                   alert("customers fetched "+d);
-                                    self.customers = customersPromise.customerList;
-                                    console.log(customersPromise);
+//                            	   self.dataJson=d;
+//                                    self.customers = dataJson.customerList;
+                            	   self.customers=d.customerList;
+                                    console.log(d.customerList);
+                                    console.log(d);
+                                    console.log(self.customers);
                                },
                                 function(errResponse){
                                     console.error('Error while fetching customers');
@@ -72,6 +74,7 @@ App.controller('customerController', ['$scope', 'customerService', function($sco
               for(var i = 0; i < self.customers.length; i++){
                   if(self.customers[i].id === id) {
                      self.customer = angular.copy(self.customers[i]);
+                     console.log("customer id to delete "+self.customer.id);
                      break;
                   }
               }

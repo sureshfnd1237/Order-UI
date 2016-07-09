@@ -11,6 +11,7 @@ App.factory('customerService', ['$http', '$q', function($http, $q){
                     return $http.get('http://localhost:8080/orderServices/customers/getCustomers/')
                             .then(
                                     function(response){
+                                        console.log(response);
                                         return response.data;
                                     }, 
                                     function(errResponse){

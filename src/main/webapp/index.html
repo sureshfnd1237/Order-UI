@@ -160,7 +160,7 @@
 		
 		
 		
-		<div class="panel panel-default">
+		<div class="panel panel-default" ng-controller="customerController as customerController">
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Customers </span></div>
               <div class="tablecontainer">
@@ -176,18 +176,18 @@
                               <th width="20%"></th>
                           </tr>
                       </thead>
-				<tbody>
-					<tr ng-repeat="c in customerController.customers">
-						<td><span ng-bind="c.id"></span></td>
+				<tbody ng-repeat="c in customerController.customers">
+					<tr>
+						<td><span ng-bind={{c.id}}></span></td>
 						<td><span ng-bind="c.customerFirstName"></span></td>
 						<td><span ng-bind="c.customerLastName"></span></td>
 						<td><span ng-bind="c.customerAddress"></span></td>
 						<td><span ng-bind="c.customerMobile"></span></td>
 						<td><span ng-bind="c.customerEmail"></span></td>
 						<td>
-							<button type="button" ng-click="customerController.edit(u.id)"
+							<button type="button" ng-click="customerController.edit(c.id)"
 								class="btn btn-success custom-width">Edit</button>
-							<button type="button" ng-click="customerController.remove(u.id)"
+							<button type="button" ng-click="customerController.remove(c.id)"
 								class="btn btn-danger custom-width">Remove</button>
 						</td>
 					</tr>
