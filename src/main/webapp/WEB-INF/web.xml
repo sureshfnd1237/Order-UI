@@ -35,5 +35,14 @@
 <!-- 		<servlet-name>orderUI</servlet-name> -->
 <!-- 		<url-pattern>/orderUI/*</url-pattern> -->
 <!-- 	</servlet-mapping> -->
+<servlet>
+    <!-- Override init parameter to avoid nasty -->
+    <!-- file locking issue on windows.         -->
+    <servlet-name>default</servlet-name>
+    <init-param>
+        <param-name>useFileMappedBuffer</param-name>
+        <param-value>false</param-value>
+    </init-param>
+</servlet>
  
 </web-app>

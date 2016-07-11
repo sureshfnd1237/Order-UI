@@ -14,17 +14,17 @@
 				<span class="lead"><h2>Customer Registration Form</h2> </span>
 			</div>
 			<div class="formcontainer">
-				<form ng-submit="customerController.submit()" name="myForm"
+				<form ng-submit="submit()" name="myForm"
 					class="form-horizontal">
-					<input type="hidden" ng-model="customerController.customer.id" />
+					<input type="hidden" ng-model="id" />
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="uname">First
-								Name</label>
+							<label class="col-md-2 control-lable" for="customerFirstName">First
+								Name{{customerFirstName}}</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerFirstName"
-									id="firstName" class="username form-control input-sm"
-									placeholder="Enter your First name" required ng-minlength="3" />
+								<input type="text" ng-model="customerFirstName"
+									id="customerFirstName" class="username form-control input-sm"
+									 required ng-minlength="3" />
 								<div class="has-error" ng-show="myForm.$dirty">
 									<span ng-show="myForm.uname.$error.required">This is a
 										required field</span> <span ng-show="myForm.uname.$error.minlength">Minimum
@@ -37,11 +37,11 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="uname">Last
+							<label class="col-md-2 control-lable" for="customerLastName">Last
 								Name</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerLastName"
-									id="lastName" class="username form-control input-sm"
+								<input type="text" ng-model="customerLastName"
+									id="customerLastName" class="username form-control input-sm"
 									placeholder="Enter your Last name" required ng-minlength="3" />
 								<div class="has-error" ng-show="myForm.$dirty">
 									<span ng-show="myForm.uname.$error.required">This is a
@@ -55,11 +55,11 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="uname">Mobile
+							<label class="col-md-2 control-lable" for="customerMobile">Mobile
 								Number</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerMobile"
-									id="mobileNumber" class="username form-control input-sm"
+								<input type="text" ng-model="customerMobile"
+									id="customerMobile" class="username form-control input-sm"
 									placeholder="Enter your Mobile Number" required
 									ng-minlength="3" />
 								<div class="has-error" ng-show="myForm.$dirty">
@@ -74,11 +74,11 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="uname">Phone
+							<label class="col-md-2 control-lable" for="customerPhone">Phone
 								Number</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerPhone"
-									id="phoneNumber" class="username form-control input-sm"
+								<input type="text" ng-model="customerPhone"
+									id="customerPhone" class="username form-control input-sm"
 									placeholder="Enter your Phone Number" required ng-minlength="3" />
 							</div>
 						</div>
@@ -86,10 +86,10 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="address">Country</label>
+							<label class="col-md-2 control-lable" for="customerCountry">Country</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerCountry"
-									id="country" class="form-control input-sm"
+								<input type="text" ng-model="customerCountry"
+									id="customerCountry" class="form-control input-sm"
 									placeholder="Enter your Country" />
 							</div>
 						</div>
@@ -97,10 +97,10 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="address">State</label>
+							<label class="col-md-2 control-lable" for="customerState">State</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerState"
-									id="state" class="form-control input-sm"
+								<input type="text" ng-model="customerState"
+									id="customerState" class="form-control input-sm"
 									placeholder="Enter your State" />
 							</div>
 						</div>
@@ -108,10 +108,10 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="address">PostalCode</label>
+							<label class="col-md-2 control-lable" for="customerPostcode">PostalCode</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerPostcode"
-									id="postalCode" class="form-control input-sm"
+								<input type="text" ng-model="customerPostcode"
+									id="customerPostcode" class="form-control input-sm"
 									placeholder="Enter your Postal Code" />
 							</div>
 						</div>
@@ -119,10 +119,10 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="address">Address</label>
+							<label class="col-md-2 control-lable" for="customerAddress">Address</label>
 							<div class="col-md-7">
-								<input type="text" ng-model="customerController.customer.customerAddress"
-									id="address" class="form-control input-sm"
+								<input type="text" ng-model="customerAddress"
+									id="customerAddress" class="form-control input-sm"
 									placeholder="Enter your Address." />
 							</div>
 						</div>
@@ -130,10 +130,10 @@
 
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label class="col-md-2 control-lable" for="email">Email</label>
+							<label class="col-md-2 control-lable" for="customerEmail">Email</label>
 							<div class="col-md-7">
-								<input type="email" ng-model="customerController.customer.customerEmail"
-									id="email" class="email form-control input-sm"
+								<input type="email" ng-model="customerEmail"
+									id="customerEmail" class="email form-control input-sm"
 									placeholder="Enter your Email" required />
 								<div class="has-error" ng-show="myForm.$dirty">
 									<span ng-show="myForm.email.$error.required">This is a
@@ -148,7 +148,7 @@
 						<div class="form-actions floatRight">
 							<input type="submit" value="Add" class="btn btn-primary btn-sm"
 								ng-disabled="myForm.$invalid">
-							<button type="button" ng-click="customerController.reset()"
+							<button type="button" ng-click="reset()"
 								class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset
 								Form</button>
 						</div>
@@ -176,7 +176,7 @@
                               <th width="20%"></th>
                           </tr>
                       </thead>
-				<tbody ng-repeat="c in customerController.customers">
+				<tbody ng-repeat="c in customers">
 					<tr>
 						<td><span ng-bind={{c.id}}></span></td>
 						<td><span ng-bind="c.customerFirstName"></span></td>
@@ -185,9 +185,9 @@
 						<td><span ng-bind="c.customerMobile"></span></td>
 						<td><span ng-bind="c.customerEmail"></span></td>
 						<td>
-							<button type="button" ng-click="customerController.edit(c.id)"
+							<button type="button" ng-click="edit(c.id)"
 								class="btn btn-success custom-width">Edit</button>
-							<button type="button" ng-click="customerController.remove(c.id)"
+							<button type="button" ng-click="remove(c.id)"
 								class="btn btn-danger custom-width">Remove</button>
 						</td>
 					</tr>

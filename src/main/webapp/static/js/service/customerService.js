@@ -1,7 +1,6 @@
 /**
  * 
  */
-'use strict';
 
 App.factory('customerService', ['$http', '$q', function($http, $q){
  
@@ -45,20 +44,20 @@ App.factory('customerService', ['$http', '$q', function($http, $q){
                                         return $q.reject(errResponse);
                                     }
                             );
-            }
+            },
              
-//            deleteCustomer: function(id){
-//                    return $http.delete('http://localhost:8080/Spring4MVCAngularJSExample/customer/'+id)
-//                            .then(
-//                                    function(response){
-//                                        return response.data;
-//                                    }, 
-//                                    function(errResponse){
-//                                        console.error('Error while deleting customer');
-//                                        return $q.reject(errResponse);
-//                                    }
-//                            );
-//            }
+            deleteCustomer: function(id){
+                    return $http.delete('http://localhost:8080/orderServices/customers/deleteCustomer/'+id)
+                            .then(
+                                    function(response){
+                                        return response.data;
+                                    }, 
+                                    function(errResponse){
+                                        console.error('Error while deleting customer');
+                                        return $q.reject(errResponse);
+                                    }
+                            );
+            }
          
     };
  
