@@ -34,7 +34,7 @@ App.factory('customerService', ['$http', '$q', function($http, $q){
             },
              
             updateCustomer: function(customer, id){
-                    return $http.put('http://localhost:8080/Spring4MVCAngularJSExample/customer/'+id, customer)
+                    return $http.put('http://localhost:8080/orderServices/customers/updateCustomer', customer)
                             .then(
                                     function(response){
                                         return response.data;

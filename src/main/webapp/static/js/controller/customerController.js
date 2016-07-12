@@ -72,6 +72,7 @@ App.controller('customerController', ['$scope', 'customerService', function($sco
           $scope.fetchAllCustomers();
  
           $scope.submit = function() {
+              $scope.customer = {id:$scope.id,customerFirstName:$scope.customerFirstName,customerLastName:$scope.customerLastName,customerMobile:$scope.customerMobile,customerPhone:$scope.customerPhone,customerCountry:$scope.customerCountry,customerState:$scope.customerState,customerPostcode:$scope.customerPostcode,customerAddress:$scope.customerAddress,customerEmail:$scope.customerEmail};
               if($scope.customer.id===null){
                   console.log('Saving New Customer', $scope.customer);    
                   $scope.createCustomer($scope.customer);

@@ -5,10 +5,9 @@
 <script src="../static/js/controller/customerController.js"></script>
 <script src="../static/js/service/customerService.js"></script>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="customerController as customerController">
 	<h2>Order Services</h2>
-	<div class="generic-container"
-		ng-controller="customerController as customerController">
+	<div class="generic-container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<span class="lead"><h2>Customer Registration Form</h2> </span>
@@ -160,7 +159,7 @@
 		
 		
 		
-		<div class="panel panel-default" ng-controller="customerController as customerController">
+		<div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Customers </span></div>
               <div class="tablecontainer">
