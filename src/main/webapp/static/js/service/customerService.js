@@ -47,16 +47,7 @@ App.factory('customerService', ['$http', '$q', function($http, $q){
             },
              
             deleteCustomer: function(id){
-                    return $http.delete('http://localhost:8080/orderServices/customers/deleteCustomer/'+id)
-                            .then(
-                                    function(response){
-                                        return response.data;
-                                    }, 
-                                    function(errResponse){
-                                        console.error('Error while deleting customer');
-                                        return $q.reject(errResponse);
-                                    }
-                            );
+                    return $http["delete"]('http://localhost:8080/orderServices/customers/deleteCustomer/'+id);
             }
          
     };
